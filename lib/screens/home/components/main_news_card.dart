@@ -8,43 +8,45 @@ class MainNewsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.symmetric(vertical: 25.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
-            ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10.0), //add border radius
             child: Image.network(
               'https://cdn.benzinga.com/files/images/story/2022/Lordstown_Motors_EV.jpeg?width=1200&height=800&fit=crop',
-              height: 250,
+              height: 210,
               width: 400,
+              fit: BoxFit.cover,
             ),
           ),
           Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
+            children: const <Widget>[
+              Padding(padding: EdgeInsets.only(top: 20)),
+              Text(
                 'Reuters',
                 style: TextStyle(
                     fontWeight: FontWeight.normal,
                     color: accentColor,
                     fontSize: 17.0),
               ),
-              const Text(
+              Text(
                 'U.S. equity funds lure inflows for third straight week',
                 style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
               ),
-              Container(
-                child: const Text(
-                  'U.S. equity funds continued to gain inflows for a third straight week in the week to ',
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+                child: Text(
+                  style: TextStyle(height: 1.9),
+                  'U.S. equity funds continued to gain inflows for a third straight week in the week to Nov. 2, helped by expectations that the Federal Reserve would slow the pace of its interest rate hikes soon.',
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              const NewsTags(),
+              NewsTags(),
             ],
           )
         ],

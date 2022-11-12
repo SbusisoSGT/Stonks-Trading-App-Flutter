@@ -9,10 +9,10 @@ class HomeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(35.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const Text(
+      child: ListView(
+        clipBehavior: Clip.antiAlias,
+        children: const <Widget>[
+          Text(
             'Trending News',
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -20,7 +20,7 @@ class HomeBody extends StatelessWidget {
               fontSize: 30.0,
             ),
           ),
-          const MainNewsCard(),
+          MainNewsCard(),
         ],
       ),
     );
